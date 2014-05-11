@@ -18,7 +18,7 @@ vec3 samplePanorama(sampler2D sampler, vec3 dir, float lod)
     float e2i = exp2(i);
     float e2j = exp2(j);
     vec2 scalei = vec2(1.0, 0.5) / e2i;
-    vec2 offseti = vec2(0.0, 0.5/e2i - i*2.0/1024.0);
+    vec2 offseti = vec2(0.0, 0.5/e2i - i*2.0/1024.0); // Assuming 1px border paddding and width 1024px
 
     vec2 scalej = vec2(1.0, 0.5) / e2j;
     vec2 offsetj = vec2(0.0, 0.5/e2j - j*2.0/1024.0);

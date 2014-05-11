@@ -64,7 +64,7 @@ void App::setValue(const std::string& param, const std::string& value)
 
     assert(roughness >= 0.f and roughness <= 1.f);
     assert(gamma >= 1.f     and gamma <= 2.5f);
-    assert(numSamples > 0   and numSamples < 50);
+    assert(numSamples > 0);
     assert(lod >= 0.f       and lod <= 5.f);
 
     // Compute sample half-vectors wh
@@ -160,7 +160,7 @@ void App::drawFrame()
     renderer->setUniform3fv("F0", 1, &F0[0]);
     renderer->setUniform3fv("kd", 1, &kd[0]);
     renderer->setUniform1f("roughness", roughness);
-    renderer->setUniform1f("lod", roughness*10.f);
+    renderer->setUniform1f("lod", lod);
     renderer->setUniform1f("gamma",     gamma);
     renderer->setUniform3fv("whs", numSamples, &whs[0][0]);
     renderer->drawMesh(meshes[currentMeshInd]);

@@ -50,7 +50,7 @@ private:
     glm::vec3 F0 = glm::vec3(0.03f);
     glm::vec3 kd = glm::vec3(0.42f, 0.008f, 0.008f);
     float gamma = 1.f;
-    int numSamples = 30;
+    int numSamples = 50;
     std::vector<glm::vec3> whs;
 
     std::string cmd, previousCmd;
