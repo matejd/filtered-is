@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Emscripten-Generated Code</title>
+    <title>Filtered Importance Sampling</title>
     <style>
       .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
       textarea.emscripten { font-family: monospace; width: 80%; }
       div.emscripten { text-align: center; }
-      div.emscripten_border { border: 1px solid black; }
+      div.emscripten_border { border: 1px solid white; }
       /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
       canvas.emscripten { border: 0px none; }
+      div.description {width: 80%; text-align: left;}
     </style>
   </head>
   <body>
-    <hr/>
     <div class="emscripten" id="status">Downloading...</div>
     <div class="emscripten">
       <progress value="0" max="100" id="progress" hidden=1></progress>  
@@ -22,18 +22,18 @@
     <div class="emscripten_border">
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
     </div>
-    <hr/>
-    <div class="emscripten">
-      <input type="checkbox" id="resize">Resize canvas
-      <input type="checkbox" id="pointerLock" checked>Lock/hide mouse pointer
-      &nbsp;&nbsp;&nbsp;
-      <input type="button" value="Fullscreen" onclick="Module.requestFullScreen(document.getElementById('pointerLock').checked, 
-                                                                                document.getElementById('resize').checked)">
-    </div>
     
-    <hr/>
+    <div class="emscripten description">
+        <h1>Filtered Importance Sampling</h1>
+        <p>Importance sampling as described in [1].</p>
+        <p>
+        [1] GPU-Based Importance Sampling, Colbert and Krivánek <a href="http://http.developer.nvidia.com/GPUGems3/gpugems3_ch20.html">link</a>
+        <br/>
+        Walt Disney head model by <a href="http://blog.davidoreilly.com/post/18087489343/disneyhead">David OReilly</a>. Any errors?
+        </p>
+    </div>
+
     <textarea class="emscripten" id="output" rows="8"></textarea>
-    <hr>
     <script type='text/javascript'>
       // connect to canvas
       var Module = {

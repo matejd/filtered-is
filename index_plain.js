@@ -96,13 +96,13 @@ Module['FS_createPath']('/', 'assets', true, true);
     };
       new DataRequest(0, 261, 0, 0).open('GET', '/assets/env.fs');
     new DataRequest(261, 436, 0, 0).open('GET', '/assets/env.vs');
-    new DataRequest(436, 2786, 0, 0).open('GET', '/assets/mesh.fs');
-    new DataRequest(2786, 4264, 0, 0).open('GET', '/assets/panorama.part');
-    new DataRequest(4264, 128352, 0, 0).open('GET', '/assets/icosphere.rawmesh');
-    new DataRequest(128352, 128577, 0, 0).open('GET', '/assets/tonemap.fs');
-    new DataRequest(128577, 128867, 0, 0).open('GET', '/assets/mesh.vs');
-    new DataRequest(128867, 518959, 0, 0).open('GET', '/assets/walt.rawmesh');
-    new DataRequest(518959, 4713281, 0, 0).open('GET', '/assets/grace.tga');
+    new DataRequest(436, 2773, 0, 0).open('GET', '/assets/mesh.fs');
+    new DataRequest(2773, 4300, 0, 0).open('GET', '/assets/panorama.part');
+    new DataRequest(4300, 128388, 0, 0).open('GET', '/assets/icosphere.rawmesh');
+    new DataRequest(128388, 128613, 0, 0).open('GET', '/assets/tonemap.fs');
+    new DataRequest(128613, 128903, 0, 0).open('GET', '/assets/mesh.vs');
+    new DataRequest(128903, 518995, 0, 0).open('GET', '/assets/walt.rawmesh');
+    new DataRequest(518995, 4713317, 0, 0).open('GET', '/assets/grace.tga');
     var PACKAGE_PATH;
     if (typeof window === 'object') {
       PACKAGE_PATH = window['encodeURIComponent'](window.location.pathname.toString().substring(0, window.location.pathname.toString().lastIndexOf('/')) + '/');
@@ -112,7 +112,7 @@ Module['FS_createPath']('/', 'assets', true, true);
     }
     var PACKAGE_NAME = 'build/index_plain.data';
     var REMOTE_PACKAGE_NAME = 'index_plain.data';
-    var PACKAGE_UUID = '990d0e90-08b8-40f2-bbb0-fdb4c8cdd15f';
+    var PACKAGE_UUID = 'e9b889a0-7ec5-4f2e-91f4-0f02a4f3c1b0';
     function processPackageData(arrayBuffer) {
       Module.finishedDataFileDownloads++;
       assert(arrayBuffer, 'Loading data file failed.');
