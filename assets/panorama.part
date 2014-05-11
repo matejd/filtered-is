@@ -1,0 +1,43 @@
+// Sample HDR environment map in panoramic format (latitude/longitude).
+// HDR encoded with RGBM (multiplier + gamma 2.2 encoded, max value is 50).
+// WebGL 1.0 GLSL doesn't support textureLod yet (support is on its way as of May 2014),
+// so we're using a texture atlas instead.
+// Atlas packed with an offline tool (max 6 mipmap levels).
+vec3 samplePanorama(sampler2D sampler, vec3 dir, float lod)
+{
+    const float invPI = 1.0 / 3.14159265;
+    vec2 uv = vec2((1.0+atan(-dir.x, dir.z)*invPI), acos(dir.y)*invPI);
+    uv.x *= 0.5;
+
+    float i = floor(lod);
+    float j = i+1.0;
+    float lerp = lod-i;
+    i = min(i, 5.0);
+    j = min(j, 5.0);
+
+    float e2i = exp2(i);
+    float e2j = exp2(j);
+    vec2 scalei = vec2(1.0, 0.5) / e2i;
+    vec2 offseti = vec2(0.0, 0.5/e2i - i*2.0/1024.0);
+
+    vec2 scalej = vec2(1.0, 0.5) / e2j;
+    vec2 offsetj = vec2(0.0, 0.5/e2j - j*2.0/1024.0);
+
+    // Emulate trilinear sampling
+    vec2 uv1 = uv*scalei + offseti;
+    vec2 uv2 = uv*scalej + offsetj;
+
+    vec4 rgba1 = texture2D(sampler, uv1);
+    vec4 rgba2 = texture2D(sampler, uv2);
+
+    // RGBM to linear
+    const float maxValue = 50.0;
+    // Decode and then interpolate
+    //vec3 c1 = pow(rgba1.rgb, vec3(2.2)) * rgba1.a * maxValue;
+    //vec3 c2 = pow(rgba2.rgb, vec3(2.2)) * rgba2.a * maxValue;
+    //return c1*(1.0-lerp) + c2*lerp;
+
+    // Interpolate and then decode (faster)
+    vec4 c = rgba1*(1.0-lerp) + rgba2*lerp;
+    return pow(c.rgb, vec3(2.2)) * c.a * maxValue;
+}
