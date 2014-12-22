@@ -2,7 +2,7 @@ Filtered Importance Sampling in WebGL
 =====================================
 
 This was coded as a part of my diploma thesis on physically-based shading (or rendering).
-Importance sampling (IS) is essentialy a Monte Carlo integration method used in rendering
+Importance sampling (IS) is essentially a Monte Carlo integration method used in rendering
 diffuse and glossy surface reflections (BRDFs evaluated in semi-random directions across a hemisphere domain).
 But plain importance sampling requires a large number of samples to produce accurate
 results in many cases. Filtered IS adds filtering (doh) of environment maps (mipmaps)
