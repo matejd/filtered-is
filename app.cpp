@@ -70,13 +70,7 @@ void App::setValue(const std::string& param, const std::string& value)
     // Compute sample half-vectors wh
     whs.clear();
     whs.reserve(numSamples);
-    //unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count();
-    //std::mt19937 mt(seed);
-    //std::uniform_real_distribution<float> dist(0.f, 1.f);
     for (int i = 0; i < numSamples; i++) {
-        //const float e1 = dist(mt);
-        //const float e2 = dist(mt);
-
         // Halton quasi-random sequence
         const vec2 halton = vec2(getRadicalInverse(i+1, 2),
                                  getRadicalInverse(i+1, 3));
@@ -107,7 +101,6 @@ bool App::setup()
     meshShader = renderer->addShader({"assets/mesh.vs"}, {"assets/panorama.part", "assets/mesh.fs"});
     envShader  = renderer->addShader({"assets/env.vs"}, {"assets/panorama.part", "assets/env.fs"});
 
-    //envCubemap = renderer->addCubemap("assets/cubemap/r", PixelFormat::Rgb, PixelFormat::Rgb, PixelType::Ubyte);
     envPanorama = renderer->addTexture("assets/grace.tga", PixelFormat::Rgba, PixelFormat::Rgba, PixelType::Ubyte);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);

@@ -102,7 +102,6 @@ int main()
         return 1;
     }
 
-    //glfwOpenWindowHint(GLFW_FSAA_SAMPLES, 4);
     glfwOpenWindowHint(GLFW_WINDOW_NO_RESIZE, GL_TRUE);
     if (glfwOpenWindow(1024,512, 8,8,8,0, 24,0,GLFW_WINDOW) != GL_TRUE) {
         std::cout << "Failed to open a window!" << std::endl;

@@ -43,7 +43,6 @@ private:
     int currentMeshInd = 0;
     ShaderID meshShader;
     ShaderID envShader;
-    //TextureID envCubemap;
     TextureID envPanorama;
     float roughness = 0.05f;
     float lod = 0.5f;
