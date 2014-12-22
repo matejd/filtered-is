@@ -9,6 +9,8 @@ results in many cases. Filtered IS adds filtering (doh) of environment maps (mip
 to reduce the number of needed samples.
 See resources for more theory.
 
+![Screenshot](http://matejd.github.io/filtered-is/assets/walt-importance-sampling.png)
+
 
 Features
 --------
