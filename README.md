@@ -7,7 +7,7 @@ diffuse and glossy surface reflections (BRDFs evaluated in semi-random direction
 But plain importance sampling requires a large number of samples to produce accurate
 results in many cases. Filtered IS adds filtering (doh) of environment maps (mipmaps)
 to reduce the number of needed samples.
-See resources for more theory.
+See resources for more theory. Online [here](http://matejd.github.io/filtered-is/).
 
 ![Screenshot](http://matejd.github.io/filtered-is/assets/walt-importance-sampling.png)
 
